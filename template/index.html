@@ -1,0 +1,539 @@
+<!--
+
+=========================================================
+* Swipe - Mobile App One Page Bootstrap 5 Template
+=========================================================
+
+* Product Page: https://themesberg.com/product/bootstrap/swipe-free-mobile-app-one-page-bootstrap-5-template
+* Copyright 2020 Themesberg (https://www.themesberg.com)
+
+* Coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Contact us if you want to remove it.
+
+-->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+<!-- Primary Meta Tags -->
+<title>Matematika Bintang - Landing Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="title" content="Swipe - Mobile App One Page Bootstrap 5 Template">
+<meta name="author" content="Themesberg">
+<meta name="description" content="Free Mobile Application One Page Bootstrap 5 Template by Themesberg">
+<meta name="keywords" content="bootstrap, bootstrap 5, bootstrap 5 one page, bootstrap 5 mobile application, one page template, bootstrap 5 one page template, themesberg, themesberg one page, one page template bootstrap 5" />
+<link rel="canonical" href="https://themesberg.com/product/bootstrap/swipe-free-mobile-app-one-page-bootstrap-5-template">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://demo.themesberg.com/swipe/">
+<meta property="og:title" content="Swipe - Mobile App One Page Bootstrap 5 Template">
+<meta property="og:description" content="Free Mobile Application One Page Bootstrap 5 Template by Themesberg">
+<meta property="og:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/swipe/swipe-thumbnail.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://demo.themesberg.com/swipe/">
+<meta property="twitter:title" content="Swipe - Mobile App One Page Bootstrap 5 Template">
+<meta property="twitter:description" content="Free Mobile Application One Page Bootstrap 5 Template by Themesberg">
+<meta property="twitter:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/swipe/swipe-thumbnail.jpg">
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="120x120" href=  "{% static '/assets/img/favicon/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static './assets/img/favicon/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static './assets/img/favicon/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static './assets/img/favicon/site.webmanifest' %}">
+<link rel="mask-icon" href="{% static './assets/img/favicon/safari-pinned-tab.svg' %}" color="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Core -->
+<script src="{% static './vendor/popper.js/dist/umd/popper.min.js' %}"></script>
+<script src="{% static './vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static './vendor/headroom.js/dist/headroom.min.js' %}"></script>
+
+
+<!-- Fontawesome -->
+<link type="text/css" href="{% static './vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet %}">
+
+
+<!-- Swipe CSS -->
+<link type="text/css" href="{% static './css/swipe.css' %}" rel="stylesheet">
+
+
+<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+
+
+
+
+
+<!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+
+</head>
+
+<body>
+
+
+
+
+    <header class="header-global" id="home">
+    <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-light navbar-theme-secondary">
+        <div class="container position-relative">
+            <a id="homelogo" class="navbar-brand mr-lg-4" href="/">
+                <img class="navbar-brand-dark" src="{% static './static/assets/img/matematikabintang.PNG'%}" alt="Logo light">
+                <img class="navbar-brand-light" src="{% static './static/assets/img/matematikabintang.PNG'%}" alt="Logo dark">
+            </a>
+            <div class="navbar-collapse collapse mr-auto" id="navbar_global">
+                <div class="navbar-collapse-header">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="./index.html">
+                                <img src="{% static './assets/img/dark.svg'%}" alt="Logo dark %}">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="beta" class="nav-link">
+                            Materi
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        
+                        <a href="#faq" class="nav-link">
+                            FAQ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://api.whatsapp.com/send?phone=6281230648290&text=Kak Gusanwa, aku mau tanya nih tentang les private online nya!" class="nav-link">
+                            Whatsapp
+                        </a>
+                    </li>
+
+                    <li>
+                        {% if user.is_authenticated %} Hi {{user}} {% endif %}
+                    </li>
+
+                    <li class="nav-item">
+                        {% if user.is_authenticated %}
+                       <a href="{% url 'logout' %}">Log out</a>
+                       {% endif %}
+                    </li>
+
+                </ul>
+            </div>
+            <div class="d-flex align-items-center">
+                    <a class="btn btn-outline-dark bg-dark text-white animate-up-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                       <a class="btn btn-md btn-tertiary text-white d-none d-md-inline animate-up-2" data-bs-toggle="modal" data-bs-target="#registerModal"  >Register<i class="fas fa-rocket ml-2"> </i></a>
+                    
+                       <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                
+            </div>
+        </div>
+    </nav>
+</header>
+    <main>
+        <!-- Hero -->
+        <section class="section section-header text-dark pb-md-8">
+            <div class="container">
+
+                <!-- Modal -->
+
+                {%include "loginform.html"%}
+                {%include "registerform.html"%}
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 text-center mb-5 mb-md-7">
+                        <h1 class="display-2 font-weight-bolder mb-4">
+                            Live & Fun!
+                        </h1>
+                        <p class="lead mb-4 mb-lg-5">Belajar Matematika privat dan live melalui aplikasi. Tentor dan murid keduanya aktif dalam kegiatan pembelajaran langsung sehingga tidak membosankan dan terpantau. Jaminan kemampuan matematika akan naik secara signifikan!</p>
+                        <div>
+                            <a href="https://api.whatsapp.com/send?phone=6281230648290&text=Kak Gusanwa, aku mau tanya nih tentang les private online nya!" class="btn btn-dark btn-download-app mb-xl-0 mr-2 mr-md-3">
+                                <span class="d-flex align-items-center">
+                                    <span class="icon icon-brand mr-2 mr-md-3"><span class="fab fa-whatsapp"></span></span>
+                                    <span class="d-inline-block text-left">
+                                        <small class="font-weight-normal d-none d-md-block">Hubungi saya di</small> Whatsapp
+                                    </span> 
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-10 justify-content-center">
+                        <img class="d-none d-md-inline-block" src="{% static './assets/img/illustrations/scene.svg' %}" alt="Mobile App Mockup">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section-lg py-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                        <div class="card border-0 bg-white text-center p-1">
+                            <div class="card-header bg-white border-0 pb-0">
+                                <div class="icon icon-lg icon-primary mb-4">
+                                    <span class="far fa-check-circle"></span>
+                                </div>
+                                <h2 class="h3 text-dark m-0">Lebih paham</h2>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    Bingung? Tanyakan saja langsung dalam kelas!                 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                        <div class="card border-0 bg-white text-center p-1">
+                            <div class="card-header bg-white border-0 pb-0">
+                                <div class="icon icon-lg icon-primary mb-4">
+                                    <span class="fas fa-users"></span>
+                                   
+                                </div>
+                                <h2 class="h3 text-dark m-0">Lebih privat</h2>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    Kelas privat maksimal 5 orang per kelas, setiap murid akan terpantau.                  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card border-0 bg-white text-center p-1">
+                            <div class="card-header bg-white border-0 pb-0">
+                                <div class="icon icon-lg icon-primary mb-4">
+                                    <span class="fab fa-angellist"></span>
+                                </div>
+                                <h2 class="h3 text-dark m-0">Lebih bertanggung jawab</h2>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                   Kelas yang kecil membuat laporan perkembangan murid menjadi akurat setiap bulan.                
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section-lg" id="about">
+            <div class="container">
+                <div class="row justify-content-center mb-5 mb-lg-7">
+                    <div class="col-12 col-lg-8 text-center">
+                        <h2 class="h1 mb-4">Lebih dalam semua hal!</h2>
+                        <p class="lead">Apakah anda yakin bisa belajar matematika dengan video yang pasif dan dibuat 3 tahun yang lalu? Jika anda bingung di menit tertentu maka selesailah sudah, tidak ada mentor dan tidak terpantau! bahaya banget. Belajar matematika di sini sangat efisien karena dengan cara langsung dan private!.</p>
+                    </div>
+                </div>
+                <div class="row row-grid align-items-center mb-5 mb-lg-7">
+                    <div class="col-12 col-lg-5">
+                        <h2 class="mb-4">Pilihan paling bijaksana untuk belajar</h2>
+                        <p>Les privat yang aktif dan terhubung, Jadi kalian akan belajar dengan manusia, bukan hanya dengan video. Dan saya sebagai tentor kalian akan bertanggung jawab untuk membimbing dan mendapingi kalian meraih cita-cita.</p>
+                        <p>Sekarang kalian bisa belajar dengan lebih mudah dan lebih tidak menyakitkan. Tidak perlu menjelajahi lembah dan hutan, akan saya tunjukkan jalannya.</p>
+                        <a href="#" class="btn btn-dark mt-3 animate-up-2">
+                            Learn More
+                            <span class="icon icon-xs ml-2">
+                                <i class="fas fa-external-link-alt"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-lg-6 ml-lg-auto">
+                        <img src="{% static './assets/img/illustrations/scene-3.svg' %}" class="w-100" alt="">
+                    </div>
+                </div>
+                <div class="row row-grid align-items-center mb-5 mb-lg-7">
+                    <div class="col-12 col-lg-5 order-lg-2">
+                        <h2 class="mb-4">Ketahui progressmu. Jangen mengira.</h2>
+                        <p>Kami merekam dan mencatat dengan sungguh perkembangan dan kemampuan murid-murid kami, Bersifat transparan dan komunikatif.</p>
+                        <p>Setelah mendapat laporan perkembangan belajar yang akurat, kita dapat menyusun strategi yang baru untuk ke depan.</p>
+                        <a href="#" class="btn btn-dark mt-3 animate-up-2">
+                            Learn More
+                            <span class="icon icon-xs ml-2">
+                                <i class="fas fa-external-link-alt"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-lg-6 mr-lg-auto">
+                        <img src="{% static './assets/img/illustrations/scene-2.svg' %}" class="w-100" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card border-light p-4">
+                            <div class="card-body">
+                                <h2 class="display-2 mb-2">100%</h2>
+                                <span>Garansi kemampuan matematika meningkat.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card border-light p-4">
+                            <div class="card-body">
+                                <h2 class="display-2 mb-2">24/7</h2>
+                                <span> Konsultasi belajar setiap hari dan setiap jam.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card border-light p-4">
+                            <div class="card-body">
+                                <h2 class="display-2 mb-2">1000+</h2>
+                                <span>Video latihan soal dan materi belajar yang juga bisa di lihat di website kami gratis, untuk kelas live dan private.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section section-sm py-0">
+            <div class="container">
+                <div class="row text-center mb-5">
+                    <div class="col">
+                        <h2 class="h6 font-weight-bold text-brown">We're proudly featured by</h2>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col d-flex justify-content-center flex-wrap">
+                        <a href="#" aria-label="Stripe brand logo" class="icon icon-xl icon-dark mr-4 mr-sm-5"
+                        data-toggle="tooltip" data-placement="top" title="Stripe">
+                            <span class="fab fa-stripe"></span>
+                        </a>
+                        <a href="#" aria-label="Digg brand logo" class="icon icon-xl icon-dark mr-4 mr-sm-5"
+                        data-toggle="tooltip" data-placement="top" title="Digg">
+                            <span class="fab fa-digg"></span>
+                        </a>
+                        <a href="#" aria-label="FedEx brand logo" class="icon icon-xl icon-dark mr-4 mr-sm-5"
+                        data-toggle="tooltip" data-placement="top" title="FedEx">
+                            <span class="fab fa-fedex"></span>
+                        </a>
+                        <a href="#" aria-label="Ember brand logo" class="icon icon-xl icon-dark mr-4 mr-sm-5"
+                        data-toggle="tooltip" data-placement="top" title="Ember">
+                            <span class="fab fa-ember"></span>
+                        </a>
+                        <a href="#" aria-label="Beyond brand logo" class="icon icon-xl icon-dark mr-4 mr-sm-5"
+                        data-toggle="tooltip" data-placement="top" title="Beyond">
+                            <span class="fab fa-d-and-d-beyond"></span>
+                        </a>
+                        <a href="#" aria-label="AngryCreative brand logo" class="icon icon-xl icon-dark"
+                        data-toggle="tooltip" data-placement="top" title="AngryCreative">
+                            <span class="fab fa-angrycreative"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <section class="section section-lg" id="faq">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 text-center mb-4 mb-lg-5">
+                        <h2 class="display-3 mb-4">Facts & Questions</h2>
+                        <p class="lead">Have a question? Read through our FAQ below. If you can't find an answer, <br class="d-none d-lg-inline-block"> please email our support team. We're here to help.</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10">
+                        <!--Accordion-->
+                        <div class="accordion" id="accordionExample">
+                            <div class="card border-light mb-0">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block d-flex justify-content-between text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <span class="h6 mb-0 font-weight-bold">Kita sebenernya bakal ngapain aja sih?</span>
+                                            <span class="icon"><span class="fas fa-plus"></span></span>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="mb-0">
+                                            Kelas online tatap muka melalui google meet dan live, selain live kalian juga masih bisa belajar melalui video-video yang telah kami buat dan kami simpan di website matematikabintang, bisa juga konsultusi  masalah belajar maupun semua hal yang berkaitan dengan upaya-upaya untuk mewujudkan cita-cita kalian.
+                                        </p>                           
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card border-light mb-0">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block d-flex justify-content-between text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <span class="h6 mb-0 font-weight-bold">Yang ngajar siapa sih?</span>
+                                            <span class="icon"><span class="fas fa-plus"></span></span>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="mb-0">
+                                            Perkenalkan, saya Muhammad Gusanwa Akbar, Mahasiswa Teknik Informatik Universitas Islam Negeri Maliki Malang. Singkatnya saya mahasiswa yang berprestasi dengan ip 3,7, yang juga telah membuat e-learning ini sendirian,
+                                            dan yang paling penting, nilai utbk fisika dan matematika saya pada tahun 2019 sebesar 804 dan 786, itu masuk dalam kluster nilai tertinggi di Indonesia loh, berhasil mengalahkan 700.000++ peserta di seluruh Indonesia!
+                                        </p>                           
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card border-light mb-0">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block d-flex justify-content-between text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <span class="h6 mb-0 font-weight-bold">Emang beneran belajar di sini ada garansinya?</span>
+                                            <span class="icon"><span class="fas fa-plus"></span></span>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="mb-0">
+                                            Garansi uang kembali 100% jika di rasa layanan kami kurang memuaskan!
+                                        </p>                           
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <!--End of Accordion-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section bg-soft" id="download">
+            <figure class="position-absolute top-0 left-0 w-100 d-none d-md-block mt-n3">
+                <svg class="fill-soft" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 43.4" style="enable-background:new 0 0 1920 43.4;" xml:space="preserve">
+                   <path d="M0,23.3c0,0,405.1-43.5,697.6,0c316.5,1.5,108.9-2.6,480.4-14.1c0,0,139-12.2,458.7,14.3 c0,0,67.8,19.2,283.3-22.7v35.1H0V23.3z"></path>
+                </svg>
+            </figure>
+            <div class="container">
+                <div class="row row-grid align-items-center">
+                    <div class="col-12 col-lg-6">
+                        <span class="h5 text-muted mb-2 d-block">Mulai belajar sekarang!</span>
+                        <h2 class="display-3 mb-4">Get started in seconds</h2>
+                        <p class="lead text-muted">Hubungi Kak Gusanwa langsung yuk! Let's Go!. </p>
+                        <div class="mt-4 mt-lg-5">
+                            <a href="https://api.whatsapp.com/send?phone=6281230648290&text=Kak Gusanwa, aku mau tanya nih tentang les private online nya!" class="btn btn-dark btn-download-app mb-xl-0 mr-2 mr-md-3">
+                                <span class="d-flex align-items-center">
+                                    <span class="icon icon-brand mr-2 mr-md-3"><span class="fab fa-whatsapp"></span></span>
+                                    <span class="d-inline-block text-left">
+                                        <small class="font-weight-normal d-none d-md-block">Hubungi saya!</small> Whatsapp 
+                                    </span> 
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5 ml-lg-auto">
+                        <img class="d-none d-lg-inline-block" src="{% static './assets/img/illustrations/scene-3.svg' %}" alt="Mobile App Illustration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer py-5 pt-lg-6">
+    <div class="sticky-right">
+        <a href="#home" class="icon icon-primary icon-md btn btn-icon-only btn-white border border-soft shadow-soft animate-up-3">
+            <span class="fas fa-chevron-up"></span>
+        </a>
+    </div>
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-md-4">
+                <p>Swipe is a beautiful and free one page Bootstrap 5 Template created to showcase your awesome mobile app.</p>
+                <ul class="social-buttons mb-5 mb-lg-0">
+                    <li>
+                        <a href="https://twitter.com/themesberg" aria-label="twitter social link" class="icon icon-md icon-twitter mr-3">
+                            <span class="fab fa-twitter"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/themesberg/" class="icon icon-md icon-facebook mr-3" aria-label="facebook social link">
+                            <span class="fab fa-facebook"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/themesberg" aria-label="github social link" class="icon icon-md icon-github mr-3">
+                            <span class="fab fa-github"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://dribbble.com/themesberg" class="icon icon-md icon-dribbble" aria-label="dribbble social link" >
+                            <span class="fab fa-dribbble"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6 col-md-2 mb-5 mb-lg-0">
+                <span class="h5">Themesberg</span>
+                <ul class="footer-links mt-2">
+                    <li><a target="_blank" href="#">About Us</a></li>
+                    <li><a target="_blank" href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 mb-5 mb-lg-0">
+                <span class="h5 mb-3 d-block">Subscribe</span>
+                <form action="#">
+                    <div class="form-row mb-2">
+                        <div class="col-12">
+                            <input type="email" class="form-control mb-2" placeholder="example@company.com" name="email" aria-label="Subscribe form" required>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-dark shadow-soft btn-block" data-loading-text="Sending">
+                                <span>Subscribe</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <p class="text-muted font-small m-0">No spam. Pinky swear.</p>
+            </div>
+        </div>
+        <hr class="bg-light my-2">
+        <div class="row pt-2 pt-lg-5">
+            <div class="col mb-md-0">
+                <a href="#" target="_blank" class="d-flex justify-content-center">
+                    <img src="{% static './assets/img/themesberg.svg' %}" height="25" class="mb-3" alt="Themesberg Logo">
+                </a>
+            <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                <p class="font-weight-normal font-small mb-0">Copyright © Themesberg 2019-<span class="current-year">2020</span>. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Swipe JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+<script src="{% static './assets/js/swipe.js' %}"></script>
+
+<script src="{% static './vendor/onscreen/dist/on-screen.umd.min.js' %}"></script>
+<script src="{% static './vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>
