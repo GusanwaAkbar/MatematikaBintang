@@ -34,7 +34,11 @@ urlpatterns = [
     path('login/', views.login),
     path('blog/', viewsblog.post),
     path('beta/', viewsblog.post),
+    path('pricing/', viewsblog.pricing),
     path('beta/<slug:slugInput>/', viewsblog.detailpost ),
-   
+
+
+    path('pesananku', viewsblog.pesananku, name = 'pesananku'),
+    path('pesan-smp-3' ,viewsblog.pesan_smp3, name = 'pesan-smp-3' ),
 ]
     
