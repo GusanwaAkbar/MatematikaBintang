@@ -175,166 +175,85 @@
       </div>
 
       <div class="container">
-        <div class="row">
-        
-
-            <!-- CARD -->
-
-
-            <div class="col-md-4">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="text-xs-center">SMP Kelas 1</h4>
-                    </div>
-                    <div class="card-block text-xs-center">
-                        <p class="lead">
-                            <strong>$20 / month</strong>
-                        </p>
-                    </div>
-                    <ul class="list-group list-group-flush text-xs-center">
-                        <li class="list-group-item">
-                            Personal Use
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                        <li class="list-group-item">
-                            Single Commercial License
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                        <li class="list-group-item">
-                            Multiple site Commercial license
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                        <li class="list-group-item">
-                            Technical Support
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                    </ul>
-                    <div class="card-footer">
-                        
-                        <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-target="#pricing-1">
-                            Beli sekarang.
-                          </button>
-                    </div>
-                    <!-- Button trigger modal -->
-                </div>
-
-            </div>
-
-            <div class="col-md-4">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="text-xs-center">SMP Kelas 2</h4>
-                    </div>
-                    <div class="card-block text-xs-center">
-                        <p class="lead">
-                            <strong>$20 / month</strong>
-                        </p>
-                    </div>
-                    <ul class="list-group list-group-flush text-xs-center">
-                        <li class="list-group-item">
-                            Personal Use
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                        <li class="list-group-item">
-                            Single Commercial License
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                        <li class="list-group-item">
-                            Multiple site Commercial license
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                        <li class="list-group-item">
-                            Technical Support
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                    </ul>
-                    <div class="card-footer">
-                        
-                        <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-target="#pricing-2">
-                            Beli sekarang.
-                          </button>
-                </div>
-                    <!-- Button trigger modal -->
-
-
-            <!-- CARD -->
-
+            <div class="row">
             
 
-            </div>
+                <!-- CARD -->
 
+                {% for x in plan%}
 
-
-                 
-            </div>
-
-            <div class="col-md-4">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="text-xs-center">SMP Kelas 3</h4>
-                    </div>
-                    <div class="card-block text-xs-center">
-                        <p class="lead">
-                            <strong>$20 / month</strong>
-                        </p>
-                    </div>
-                    <ul class="list-group list-group-flush text-xs-center">
-                        <li class="list-group-item">
-                            Personal Use
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                        <li class="list-group-item">
-                            Single Commercial License
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                        <li class="list-group-item">
-                            Multiple site Commercial license
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                        <li class="list-group-item">
-                            Technical Support
-                            <span class="glyphicon glyphicon-ok float-xs-right"></span>
-                        </li>
-                    </ul>
-                    <div class="card-footer">
-                        
-                        <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-target="#pricing-3">
-                            Beli sekarang.
-                          </button>
-                </div>
-                    <!-- Button trigger modal -->
-
-
-            <!-- CARD -->
-
-            
-
-                </div>
-            </div>
-
-
-              <!-- MODAL -->
-                        
-                        <!-- Modal 1-->
-                        <div class="modal fade" id="pricing-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Beli Kelas SMP 1</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                Anda yakin untuk membeli Kelas SMP 1?
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Pesan Sekarang</button>
-                                </div>
-                            </div>
-                            </div>
+                <div class="col-md-4">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h4 class="text-xs-center"> {{x.kelas}} </h4>
                         </div>
+                        <div class="card-block text-xs-center">
+                            <p class="lead">
+                                <strong> {{ x.price }} / {{x.durasi}} Hari</strong>
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush text-xs-center">
+                            
+
+                            {% for y in bab%}
+
+                            {% if x.kelas in y.kelas.all %}
+                                <li class="list-group-item">{{ y.bab }}</li>
+                            {% endif %}
+
+                            {% endfor %}
+
+                        </ul>
+                        <div class="card-footer">
+                            
+                            <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-target="#pricing-{{x.id}}">
+                                Beli sekarang.
+                            </button>
+                        </div>
+                        <!-- Button trigger modal -->
+                    </div>
+
+                </div>
+
+                <!-- Modal 1-->
+                <div class="modal fade" id="pricing-{{x.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    
+                    <div class="modal-dialog" role="document">
+                    <form id="belikelas-{{ x }}" method="POST" action="{% url 'belikelas' x.id %}">
+                    {% csrf_token %}
+                    
+                    <div class="modal-content">
+                    
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Beli {{x.kelas}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        Anda yakin untuk membeli Kelas {{x.kelas}}
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                    </div>
+                    </form>
+                </div>
+
+
+
+
+                {%endfor%}
+
+
+
+
+
+                <!-- MODAL -->
+                            
+                            
             </div>
             
         

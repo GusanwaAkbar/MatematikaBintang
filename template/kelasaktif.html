@@ -166,7 +166,7 @@
             </h5>
           </th>
             <th>
-              <h5>Daftar Pesanan</h5>
+              <h5>Daftar Kelas Aktif</h5>
            </th>
           </tr>
         </thead>
@@ -219,7 +219,7 @@
         
     
        
-        <h1 class="h2">Pesananku</h1>
+        <h1 class="h2">Kelas Aktif</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -239,31 +239,39 @@
             <!-- CARD -->
 
             <div class="container">
-                <!-- <h1>Pesananku</h1> -->
+                <!-- <h1>Kelas Aktif</h1> -->
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">User</th>
                             <th scope="col">Kelas</th>
-                            <th scope="col">Durasi</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Date</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">Active</th>
+                            <th scope="col">Buka Kelas</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for request in pesanan %}
-                            <tr>
-                                <td>{{ request.user }}</td>
-                                <td>{{ request.subscription_plan.kelas }}</td>
-                                <td>{{ request.subscription_plan.durasi }}</td>
-                                <td>{{ request.subscription_plan.price }}</td>
-                                <td>{{ request.status }}</td>
-                                <td>{{ request.date }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
+                      {% for subscription, slug in user_subscriptions %}
+                          <tr>
+                              <td>{{ subscription.user }}</td>
+                              <td>{{ subscription.kelas.kelas }}</td>
+                              <td>{{ subscription.start_date }}</td>
+                              <td>{{ subscription.end_date }}</td>
+                              <td>{{ subscription.active }}</td>
+                              <td> 
+                                  {% if slug %}
+                                      <a href="{% url 'materipost' slugInput=slug %}">
+                                          <button type="button">Buka Kelas</button>
+                                      </a>
+                                  {% else %}
+                                      No Materi Available
+                                  {% endif %}
+                              </td>
+                          </tr>
+                      {% endfor %}
                 </table>
+                
             </div>
 
 

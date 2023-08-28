@@ -39,15 +39,27 @@ urlpatterns = [
     path('pricing/', viewsblog.pricing, name = 'pricing'),
     path('beta/<slug:slugInput>/', viewsblog.detailpost ),
 
+    path('materipost/<slug:slugInput>/', viewsblog.materipost, name = "materipost"),
+
 
     path('pesananku', viewsblog.pesananku, name = 'pesananku'),
+    path('kelasaktif', viewsblog.kelasaktif, name = 'kelasaktif'),
+
+
+
     path('pesan-smp-3' ,viewsblog.pesan_smp3, name = 'pesan-smp-3' ),
 
 
 
 
     path('adminview', viewsblog.adminview, name= 'adminview'),
+
+
     path('admin-kelas', viewsblog.adminkelas, name = 'admin-kelas'),
+    path('admin-pesanan', viewsblog.adminpesanan, name = 'admin-pesanan'),
+    path('adminsetuju/<int:id>/', viewsblog.adminsetuju, name = 'adminsetuju'),
+
+
 
     path('updatekelas/<int:pk>/', viewsblog.adminkelas, name = 'updatekelas'),
     path('updatebab/<int:bab_id>/', viewsblog.updatebab, name = 'updatebab'),
@@ -58,5 +70,9 @@ urlpatterns = [
     path('tambahdata', viewsblog.tambahdata, name = 'tambahdata'),
     path('deletedata/<int:id>/', viewsblog.deletedata, name = 'deletedata'),
     path('updatedata/<int:id>/', viewsblog.updatedata, name = 'updatedata'),
+
+
+    path('belikelas/<int:id>/', viewsblog.belikelas, name = 'belikelas'),
+
 ]
     

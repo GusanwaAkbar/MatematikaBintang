@@ -52,9 +52,9 @@ class materi(models.Model):
 
 
 class SubscriptionPlan(models.Model):
-    kelas = models.ForeignKey(kelas, on_delete=models.CASCADE)
-    durasi = models.IntegerField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    kelas = models.ForeignKey(kelas, on_delete=models.CASCADE, default=1)
+    durasi = models.IntegerField(default=30)
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=50000)
     # Other fields like features, duration, etc.
 
 class SubscriptionRequest(models.Model):
@@ -68,7 +68,7 @@ class SubscriptionRequest(models.Model):
 class UserSubscription(models.Model):
     
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    kelas = models.ForeignKey(kelas, on_delete=models.CASCADE)
+    kelas = models.ForeignKey(kelas, on_delete=models.CASCADE, default=1)
     start_date = models.DateField()
     end_date = models.DateField()
     active = models.BooleanField(default=True)

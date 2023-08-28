@@ -219,7 +219,7 @@
         
     
        
-        <h1 class="h2">Pesananku</h1>
+        <h1 class="h2">Antrean Pesanan Member</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -249,6 +249,7 @@
                             <th scope="col">Price</th>
                             <th scope="col">Status</th>
                             <th scope="col">Date</th>
+                            <th scope="col">Setujui</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -260,6 +261,15 @@
                                 <td>{{ request.subscription_plan.price }}</td>
                                 <td>{{ request.status }}</td>
                                 <td>{{ request.date }}</td>
+                                <td> 
+                                    <form action="{% url 'adminsetuju' request.id  %}", method="POST">
+                                        {% csrf_token %}
+
+                                        <button type="submit" class=" btn btn-primary"> Setujui Pesanan </button> 
+
+                                    </form>
+                                   
+                                 </td>
                             </tr>
                         {% endfor %}
                     </tbody>
