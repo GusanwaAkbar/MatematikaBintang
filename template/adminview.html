@@ -1,0 +1,699 @@
+{%  load static from static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>Dashboard Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+
+   </head>
+    
+
+    
+
+
+<!-- Fontawesome -->
+<link type="text/css" href="{% static './vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet %}">
+
+<!-- Swipe CSS -->
+<link type="text/css" href="{% static './css/swipe copy.css' %}" rel="stylesheet">
+
+
+
+<!-- Core -->
+<script src="{% static './vendor/popper.js/dist/umd/popper.min.js' %}"></script>
+<script src="{% static './vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static './vendor/headroom.js/dist/headroom.min.js' %}"></script>
+
+<!-- Vendor JS -->
+<script src="{% static './vendor/onscreen/dist/on-screen.umd.min.js' %}"></script>
+<script src="{% static './vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- Swipe JS -->
+<script src="{% static './assets/js/swipe.js' %}"></script>
+
+<!-- font awesome -->
+<script src="https://use.fontawesome.com/7b5ce193d8.js"></script>
+
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+
+  <head>
+
+
+  </head> 
+
+  
+  <body>
+    <header class="header-global" id="home">
+      <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-light navbar-theme-secondary">
+          <div class="container-fluid">
+              <a id="homelogo" class="navbar-brand mr-lg-4" href= '/'>
+                  <img class="navbar-brand-dark" src="{% static './static/assets/img/matematikabintang.PNG'%}" alt="Logo light">
+                  <img class="navbar-brand-light" src="{% static './static/assets/img/matematikabintang.PNG'%}" alt="Logo dark">
+              </a>
+              <div class="navbar-collapse collapse mr-auto" id="navbar_global">
+                  <div class="navbar-collapse-header">
+                      <div class="row">
+                          <div class="col-6 collapse-brand">
+                              <a href="./index.html">
+                                  <img src="{% static './assets/img/dark.svg'%}" alt="Logo dark %}">
+                              </a>
+                          </div>
+                          <div class="col-6 collapse-close">
+                              <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                          </div>
+                      </div>
+                  </div>
+                  <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                      <li class="nav-item">
+                          <a href="kelas" class="nav-link">
+                              Edit Kelas
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="beta" class="nav-link">
+                              Materi
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#faq" class="nav-link">
+                              FAQ
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="https://api.whatsapp.com/send?phone=6281230648290&text=Kak Gusanwa, aku mau tanya nih tentang les private online nya!" class="nav-link">
+                              Whatsapp
+                          </a>
+                      </li>
+                        <li>
+                          {% if user.is_authenticated %} Hi {{user}} {% endif %}
+                      </li>
+
+                      <li class="nav-item">
+                          {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}">Log out</a>
+                        {% endif %}
+                      </li>
+
+                  </ul>
+              </div>
+              <div class="d-flex align-items-center">
+                         <a href="https://api.whatsapp.com/send?phone=6281230648290&text=Kak Gusanwa, aku mau tanya nih tentang les private online nya!" target="_blank" class="btn btn-md btn-tertiary text-white d-none d-md-inline animate-up-2">Daftar Sekarang<i class="fas fa-rocket ml-2"></i></a>
+                  <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+              </div>
+          </div>
+      </nav>
+  </header>
+   
+<br>
+<br>
+<br>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+  <div class="table-responsive">
+
+      <table class="table table-striped table-sm">
+
+        <tbody>
+            
+            <td> 
+                {% for x, y in kelas_and_forms %}
+                {% spaceless %}
+                > {{ x }} <i class="bi bi-pen"></i>
+                <a class="edit-icon" data-toggle="modal" data-target="#updatekelas-{{ x.id }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                    </svg>
+                </a>
+                
+               
+                    
+                    <div class="modal fade" id="updatekelas-{{ x.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ x }}" aria-hidden="true">
+                         
+                        <form id="edit-kelas-{{ x }}" method="POST" action="{% url 'updatedata' x.id %}">
+                          {% csrf_token %}
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel-{{ x }}">Edit {{ kelas.name }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Populate this with your edit form for the specific object -->
+                                    update kelas {{ x }}
+                                    {{ y.as_p }}  <!-- Render form fields here -->
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="hidden" name="form_id" value="updatekelas">
+                                    <button type="submit" class="btn-primary">Save</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <a class="delete-icon" data-toggle="modal" data-target="#deletekelas-{{ x.id }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                   <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                   </svg>
+               </a>
+               
+              
+                   
+                   <div class="modal fade" id="deletekelas-{{ x.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ x }}" aria-hidden="true">
+                       <form id="deletekelas-{{ x }}" method="POST" action="{% url 'deletedata' x.id %}">
+                       {% csrf_token %}
+                       <div class="modal-dialog">
+                           <div class="modal-content">
+                               <div class="modal-header">
+                                   <h5 class="modal-title" id="modalLabel-{{ x }}">Delete {{ x.kelas }}</h5>
+                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                               </div>
+                               <div class="modal-body">
+                                   <!-- Populate this with your delete form for the specific object -->
+                                   delete Bab {{ x }}
+                                   
+                                   
+                                   
+                                  
+                                   
+                               </div>
+                               <div class="modal-footer">
+                                     <input type="hidden" name="form_id" value="deletekelas">
+                                    <button type="submit", class="btn btn-danger" >Delete</button>
+                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </form>
+
+
+                {% endspaceless %}
+            {% endfor %}
+
+
+
+            <a class="edit-icon" data-toggle="modal" data-target="#tambahkelas">
+              <button class="btn btn-primary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              </svg>Add</button>
+            </a>
+
+            </td>
+            
+        </tbody>
+      </table>
+  </div>
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
+
+     <br>
+     <br>
+     <br>
+
+     <!-- ADD BAB MODAL -->
+     <div class="modal fade" id="tambahbab" tabindex="-1" aria-labelledby="modalLabel-add" aria-hidden="true">
+      <form id="tambahbab" method="POST" action="{% url 'tambahdata' %}">
+      {% csrf_token %}
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="modalLabel-{{ x }}">Tambah Bab</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <!-- Populate this with your edit form for the specific object -->
+
+                  {{ babform }}  <!-- Render form fields here -->
+                  
+                  <input type="hidden" name="form_id" value="tambahbab">
+                  
+                  
+
+                    
+
+              </div>
+              <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+     </form>
+
+    </div>
+
+    <!-- ADD materi MODAL -->
+    <div class="modal fade" id="tambahmateri" tabindex="-1" aria-labelledby="modalLabel-add" aria-hidden="true">
+      <form id="tambahmateri" method="POST" action="{% url 'tambahdata' %}">
+      {% csrf_token %}
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="modalLabel-{{ x }}">Tambah Materi</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <!-- Populate this with your edit form for the specific object -->
+
+                  {{ materiform }}  <!-- Render form fields here -->
+                  
+                  <input type="hidden" name="form_id" value="tambahmateri">
+                  
+                  
+
+                    
+
+              </div>
+              <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+     </form>
+
+    </div>
+
+    <!-- ADD kelas MODAL -->
+    <div class="modal fade" id="tambahkelas" tabindex="-1" aria-labelledby="modalLabel-add" aria-hidden="true">
+      <form id="tambahkelas" method="POST" action="{% url 'tambahdata' %}">
+      {% csrf_token %}
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="modalLabel-{{ x }}">Tambah Kelas</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <!-- Populate this with your edit form for the specific object -->
+
+                  {{ kelasform }}  <!-- Render form fields here -->
+                  
+                  <input type="hidden" name="form_id" value="tambahkelas">
+                  
+                  
+
+                    
+
+              </div>
+              <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+     </form>
+
+    </div>
+
+  
+     
+
+     <div class="table-responsive">
+      <table class="table table table-sm">
+        <thead>
+          <tr>
+            <th>
+              <h5>
+              #
+            </h5>
+          </th>
+            <th>
+
+              <h5>Bab
+
+
+
+                <a class="edit-icon" data-toggle="modal" data-target="#tambahbab">
+                  <button class="btn btn-primary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg>Add</button>
+                </a>
+              </h5>
+              
+            
+           
+                
+                
+              
+            
+              
+           </th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+      {% for x,y in bab_and_forms  %}
+      
+        <tr>
+         
+          <td> {{forloop.counter}}</td>
+          <td>  
+        <a href="{% url 'admin-kelas' %}?bab_filter={{ x.id }}">
+            {{ x.bab }}
+        </a>
+
+            <a class="edit-icon" data-toggle="modal" data-target="#updatebab-{{ x.id }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                </svg>
+            </a>
+            
+           
+                
+                <div class="modal fade" id="updatebab-{{ x.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ x }}" aria-hidden="true">
+                    <form id="updatebab-{{ x }}" method="POST" action="{% url 'updatebab' x.id %}">
+                    {% csrf_token %}
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalLabel-{{ x }}">Edit {{ x.bab }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Populate this with your edit form for the specific object -->
+                                update Bab {{ x }}
+                                {{ y.as_p }}  <!-- Render form fields here -->
+                                <button type="submit">Save</button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+ 
+          
+               
+         <a class="delete-icon" data-toggle="modal" data-target="#deletebab-{{ x.id }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+             <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+             </svg>
+         </a>
+         
+        
+             
+             <div class="modal fade" id="deletebab-{{ x.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ x }}" aria-hidden="true">
+                 <form id="deletebab-{{ x }}" method="POST" action="{% url 'deletedata' x.id %}">
+                 {% csrf_token %}
+                 <div class="modal-dialog">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <h5 class="modal-title" id="modalLabel-{{ x }}">Edit {{ x.bab }}</h5>
+                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                         </div>
+                         <div class="modal-body">
+                             <!-- Populate this with your delete form for the specific object -->
+                             delete Bab {{ x }}
+                             
+                             
+                             <input type="hidden" name="form_id" value="deletebab">
+                            
+                             
+                         </div>
+                         <div class="modal-footer">
+                              <button type="submit", class="btn btn-danger" >Delete</button>
+                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </form>
+            
+          </td>
+          
+        
+        </tr>
+      
+      {% endfor %}
+        
+          
+          
+
+        </tbody>
+      </table>
+
+      <table class="table table table-sm">
+        <thead>
+          <tr>
+            <th>
+              <h5>
+              #
+            </h5>
+          </th>
+            <th>
+              <h5>Materi</h5>
+           </th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+        <br>
+        <br>
+
+      {% for materi in Materi  %}
+      
+        <tr>
+          <td> {{forloop.counter}}</td>
+         
+          <td> 
+          <a href = "/beta/{{materi.slug}}" >  {{materi.judul}}   </a> 
+           </td>
+        
+        </tr>
+      
+      {% endfor %}
+        
+          
+          
+
+        </tbody>
+      </table>
+
+
+    </div>
+
+
+      
+    </nav>
+    
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+       
+        
+    
+       
+        <h1 class="h2">
+          
+          Edit Materi <td>
+            <a class="edit-icon" data-toggle="modal" data-target="#tambahmateri">
+              <button class="btn btn-primary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              </svg>Add</button>
+            </a>
+          </td>
+          
+
+
+        </h1>
+
+
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          </div>
+          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar"></span>
+            This week
+          </button>
+        </div>
+      </div>
+      
+      {% if user.is_authenticated %}
+
+
+      
+      <!-- adminview.html -->
+
+      <table class="table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Judul</th>
+                <th>Link</th>
+                <th>Deskripsi</th>
+                <th>Bab</th>
+                <th>Kelas</th>
+                <th>Actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for x, y in materi_and_forms %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ x.judul }}</td>
+                <td>{{ x.link }}</td>
+                <td>{{ x.deskripsi }}</td>
+                <td>{{ x.bab }}</td>
+                <td>{{ x.kelas }}</td>
+                <td>
+                                    <a class="edit-icon" data-toggle="modal" data-target="#updatemateri-{{ x.id }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                    </svg>
+                </a>
+                
+               
+                    
+                    <div class="modal fade" id="updatemateri-{{ x.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ x }}" aria-hidden="true">
+                         
+                        <form id="edit-materi-{{ x }}" method="POST" action="{% url 'updatedata' x.id %}">
+                          {% csrf_token %}
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel-{{ x }}">Edit {{ materi.name }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Populate this with your edit form for the specific object -->
+                                    update materi {{ x }}
+                                    {{ y.as_p }}  <!-- Render form fields here -->
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="hidden" name="form_id" value="updatemateri">
+                                    <button type="submit" class="btn-primary">Save</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <a class="delete-icon" data-toggle="modal" data-target="#deletemateri-{{ x.id }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                   <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                   </svg>
+               </a>
+               
+              
+                   
+                   <div class="modal fade" id="deletemateri-{{ x.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ x }}" aria-hidden="true">
+                       <form id="deletemateri-{{ x }}" method="POST" action="{% url 'deletedata' x.id %}">
+                       {% csrf_token %}
+                       <div class="modal-dialog">
+                           <div class="modal-content">
+                               <div class="modal-header">
+                                   <h5 class="modal-title" id="modalLabel-{{ x }}">Delete {{ x.materi }}</h5>
+                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                               </div>
+                               <div class="modal-body">
+                                   <!-- Populate this with your delete form for the specific object -->
+                                   delete Bab {{ x }}
+                                   
+                                   
+                                   
+                                  
+                                   
+                               </div>
+                               <div class="modal-footer">
+                                     <input type="hidden" name="form_id" value="deletemateri">
+                                    <button type="submit", class="btn btn-danger" >Delete</button>
+                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </form>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+
+
+
+      {% else %}
+      <h1>Maaf Anda Harus Login Terlebih dahulu Untuk Melihat Materi Video</h1> 
+      {% endif %} 
+
+      <br>
+
+      <h2>{{Judul.judul}}</h2>
+      {{Judul.deskripsi}}
+
+      <br>
+      <hr>
+
+    </main>
+  </div>
+</div>
+
+
+    <script src="{% static './newblog/assets/dist/js/bootstrap.bundle.min.js'  %}     "></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="{%  static './newblog/dashboard.js' %}"></script>
+
+
+      
+    </body>
+
+
+</html>

@@ -87,73 +87,12 @@
 
 
     <header class="header-global" id="home">
-    <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-light navbar-theme-secondary">
-        <div class="container position-relative">
-            <a id="homelogo" class="navbar-brand mr-lg-4" href="/">
-                <img class="navbar-brand-dark" src="{% static './static/assets/img/matematikabintang.PNG'%}" alt="Logo light">
-                <img class="navbar-brand-light" src="{% static './static/assets/img/matematikabintang.PNG'%}" alt="Logo dark">
-            </a>
-            <div class="navbar-collapse collapse mr-auto" id="navbar_global">
-                <div class="navbar-collapse-header">
-                    <div class="row">
-                        <div class="col-6 collapse-brand">
-                            <a href="./index.html">
-                                <img src="{% static './assets/img/dark.svg'%}" alt="Logo dark %}">
-                            </a>
-                        </div>
-                        <div class="col-6 collapse-close">
-                            <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">
-                            About
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="beta" class="nav-link">
-                            Materi
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        
-                        <a href="#faq" class="nav-link">
-                            FAQ
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://api.whatsapp.com/send?phone=6281230648290&text=Kak Gusanwa, aku mau tanya nih tentang les private online nya!" class="nav-link">
-                            Whatsapp
-                        </a>
-                    </li>
+    
+    {% include "navbar-member.html" %}
 
-                    <li>
-                        {% if user.is_authenticated %} Hi {{user}} {% endif %}
-                    </li>
+    </header>
 
-                    <li class="nav-item">
-                        {% if user.is_authenticated %}
-                       <a href="{% url 'logout' %}">Log out</a>
-                       {% endif %}
-                    </li>
 
-                </ul>
-            </div>
-            <div class="d-flex align-items-center">
-                    <a class="btn btn-outline-dark bg-dark text-white animate-up-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
-                       <a class="btn btn-md btn-tertiary text-white d-none d-md-inline animate-up-2" data-bs-toggle="modal" data-bs-target="#registerModal"  >Register<i class="fas fa-rocket ml-2"> </i></a>
-                    
-                       <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                
-            </div>
-        </div>
-    </nav>
-</header>
     <main>
         <!-- Hero -->
         <section class="section section-header text-dark pb-md-8">

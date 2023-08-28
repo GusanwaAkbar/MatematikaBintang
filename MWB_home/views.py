@@ -45,7 +45,7 @@ def index (request):
             context = {
                 "output" : 'Welcome back,' + username,
             }
-            return redirect('/beta',context)
+            return redirect('home')
         else:
             context = {
                 "output" : "email atau password salah, silahkan login ulang"

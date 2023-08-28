@@ -36,8 +36,8 @@ class materi(models.Model):
     judul = models.TextField()
     link = models.TextField()
     deskripsi = models.TextField()
-    bab = models.ManyToManyField(bab)
-    kelas = models.ManyToManyField(kelas)
+    bab = models.ForeignKey(bab, on_delete=models.CASCADE, default=1)
+    kelas = models.ForeignKey(kelas, on_delete=models.CASCADE, default=1)
 
     slug = models.SlugField(blank = True)
 
@@ -52,23 +52,24 @@ class materi(models.Model):
 
 
 class SubscriptionPlan(models.Model):
-    name = models.CharField(max_length=100)
+    kelas = models.ForeignKey(kelas, on_delete=models.CASCADE)
+    durasi = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    # Other fields like features, duration, etc.
+
+class SubscriptionRequest(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    subscription_plan = models.ForeignKey(SubscriptionPlan, on_delete=models.CASCADE)
+    status = models.CharField(max_length=100, default="Menunggu Pembayaran")
+    date =  models.DateField()
+    
     # Other fields like features, duration, etc.
 
 class UserSubscription(models.Model):
     
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    subscription_plan = models.ForeignKey(SubscriptionPlan, on_delete=models.CASCADE)
+    kelas = models.ForeignKey(kelas, on_delete=models.CASCADE)
     start_date = models.DateField()
     end_date = models.DateField()
     active = models.BooleanField(default=True)
 
-class SubscriptionRequest(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    subscription_plan = models.ForeignKey(SubscriptionPlan, on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=100, default="Menunggu Pembayaran")
-    date =  models.DateField()
-    
-    # Other fields like features, duration, etc.

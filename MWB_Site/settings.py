@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'MWB_Site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mate2',
+        'NAME': 'mate3',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost'

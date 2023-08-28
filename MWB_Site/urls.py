@@ -29,16 +29,34 @@ from blog_post import viewsblog
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name ='home'),
+
+
     path('users/', include('django.contrib.auth.urls')), 
     path('logout/', views.logout),
     path('login/', views.login),
     path('blog/', viewsblog.post),
     path('beta/', viewsblog.post),
-    path('pricing/', viewsblog.pricing),
+    path('pricing/', viewsblog.pricing, name = 'pricing'),
     path('beta/<slug:slugInput>/', viewsblog.detailpost ),
 
 
     path('pesananku', viewsblog.pesananku, name = 'pesananku'),
     path('pesan-smp-3' ,viewsblog.pesan_smp3, name = 'pesan-smp-3' ),
+
+
+
+
+    path('adminview', viewsblog.adminview, name= 'adminview'),
+    path('admin-kelas', viewsblog.adminkelas, name = 'admin-kelas'),
+
+    path('updatekelas/<int:pk>/', viewsblog.adminkelas, name = 'updatekelas'),
+    path('updatebab/<int:bab_id>/', viewsblog.updatebab, name = 'updatebab'),
+    path('updatemateri/<int:pk>/', viewsblog.adminkelas, name = 'updatemateri'),
+
+
+
+    path('tambahdata', viewsblog.tambahdata, name = 'tambahdata'),
+    path('deletedata/<int:id>/', viewsblog.deletedata, name = 'deletedata'),
+    path('updatedata/<int:id>/', viewsblog.updatedata, name = 'updatedata'),
 ]
     
